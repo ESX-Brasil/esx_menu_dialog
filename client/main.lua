@@ -1,5 +1,5 @@
 Citizen.CreateThread(function()
-	-- internal variables
+	-- variáveis internas
 	ESX               = nil
 	local Timeouts    = {}
 	local GUI         = {}
@@ -64,13 +64,13 @@ Citizen.CreateThread(function()
 
 		if menu.submit ~= nil then
 
-			-- Is the submitted data a number?
+			-- Os dados enviados são um número?
 			if tonumber(data.value) ~= nil then
 
-				-- Round float values
+				-- Valores de flutuação redondos
 				data.value = ESX.Math.Round(tonumber(data.value))
 
-				-- Check for negative value
+				-- Verificar o valor negativo
 				if tonumber(data.value) <= 0 then
 					post = false
 				end
@@ -78,11 +78,11 @@ Citizen.CreateThread(function()
 
 			data.value = ESX.Math.Trim(data.value)
 
-			-- Don't post if the value is negative or if it's 0
+			-- Não poste se o valor for negativo ou se for 0
 			if post then
 				menu.submit(data, menu)
 			else
-				ESX.ShowNotification('That input is invalid!')
+				ESX.ShowNotification('Essa entrada é inválida!')
 			end
 		end
 
